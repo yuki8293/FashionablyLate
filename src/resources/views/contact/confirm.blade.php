@@ -1,0 +1,93 @@
+@extends('layouts.app')
+
+@section('css')
+<link rel="stylesheet" href="{{ asset('css/confirm.css') }}">
+@endsection
+
+@section('content')
+<div class="confirm__content">
+    <div class="confirm__heading">
+        <h2>Confirm</h2>
+    </div>
+    <?php print_r($contact['name']) ?>
+    <form class="form" action="/thanks" method="post">
+        @csrf
+        <!-- お名前 -->
+        <div class="confirm-table">
+            <table class="confirm-table__inner">
+                <tr class="confirm-table__row">
+                    <th class="confirm-table__header">お名前</th>
+                    <!-- 表示用 -->
+                    <td class="confirm-table__text">
+                        <input type="text" name="last_name" value="{{ $contact['last_name'] }}" readonly />
+                        <input type="text" name="first_name" value="{{ $contact['first_name'] }}" readonly />
+                    </td>
+                </tr>
+                <!-- 性別 -->
+                <tr class="confirm-table__row">
+                    <th class="confirm-table__header">性別</th>
+                    <td class="confirm-table__text">
+                        <!-- 表示用 -->
+                        <input type="text" name="gender_display" value="{{ ['1'=>'男性','2'=>'女性','3'=>'その他'][$contact['gender']] ?? '' }}" readonly>
+                    </td>
+                </tr>
+                <!-- メールアドレス -->
+                <tr class="confirm-table__row">
+                    <th class="confirm-table__header">メールアドレス</th>
+                    <!-- 表示用 -->
+                    <td class="confirm-table__text">
+                        <input type="email" name="email" value="{{ $contact['email'] }}" readonly>
+                    </td>
+                </tr>
+                <!-- 電話番号 -->
+                <tr class="confirm-table__row">
+                    <th class="confirm-table__header">電話番号</th>
+                    <!-- 表示用 -->
+                    <td class="confirm-table__text">
+                        <input type="tel" name="tel1" value="{{ $contact['tel1'] }}" readonly />
+                        <input type="tel" name="tel2" value="{{ $contact['tel2'] }}" readonly />
+                        <input type="tel" name="tel3" value="{{ $contact['tel3'] }}" readonly />
+                    </td>
+                </tr>
+                <!-- 住所 -->
+                <tr class="confirm-table__row">
+                    <th class="confirm-table__header">住所</th>
+                    <!-- 表示用 -->
+                    <td class="confirm-table__text">
+                        <input type="text" name="address" value="{{ $contact['address'] }}" readonly>
+                    </td>
+                </tr>
+                <!-- 建物名 -->
+                <tr class="confirm-table__row">
+                    <th class="confirm-table__header">建物名</th>
+                    <!-- 表示用 -->
+                    <td class="confirm-table__text">
+                        <input type="text" name="building" value="{{ $contact['building'] }}" readonly>
+                    </td>
+                </tr>
+                <!-- お問い合わせの種類 -->
+                <tr class="confirm-table__row">
+                    <th class="confirm-table__header">お問い合わせの種類</th>
+                    <!-- 表示用 -->
+                    <td class="confirm-table__text">
+                        <input type="text" name="category" value="{{ ['1'=>'商品について','2'=>'配送について','3'=>'返品・交換について','4'=>'その他'][$contact['category']] ?? '' }}" readonly>
+                    </td>
+                </tr>
+
+                <!-- お問い合わせ内容 -->
+                <tr class="confirm-table__row">
+                    <th class="confirm-table__header">お問い合わせ内容</th>
+                    <!-- 表示用 -->
+                    <td class="confirm-table__text">
+                        <input type="text" name="content" value="{{ $contact['content'] }}" readonly />
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div class="form__button">
+            <button class="form__button-submit" type="submit">送信</button>
+            <button class="form__button-back" type="button" onclick="history.back();">編集</button>
+        </div>
+    </form>
+</div>
+@endsection
