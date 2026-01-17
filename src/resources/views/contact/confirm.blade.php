@@ -9,7 +9,7 @@
     <div class="confirm__heading">
         <h2>Confirm</h2>
     </div>
-    <?php print_r($contact['name']) ?>
+
     <form class="form" action="/thanks" method="post">
         @csrf
         <!-- お名前 -->

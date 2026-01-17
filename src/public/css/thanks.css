@@ -1,0 +1,48 @@
+.header {
+    background: #fff;
+}
+
+.header__inner {
+    margin: 0 auto;
+    padding: 20px 15px;
+    max-width: 1230px;
+}
+
+.header__logo {
+    color: #8f7f76;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 24px;
+}
+
+.thanks__content {
+    margin: 0 auto;
+    padding: 30px 15px;
+    max-width: 1230px;
+    text-align: center;
+}
+
+.thanks__heading {
+    margin-bottom: 40px;
+    text-align: center;
+    color: #8f7f76;
+}
+
+.thanks__button{
+    display: inline-block;
+    margin-top: 30px;
+     /* 上に余白 */
+    padding: 12px 30px;
+    font-size: 16px;
+    color: white;
+    background-color: #4CAF50;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+    }
+
+    .thanks__button:hover {
+        background-color: #45a049;
+    }
+
+
