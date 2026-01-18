@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\AdminController;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,6 +16,11 @@ use App\Http\Controllers\AuthController;
 |
 */
 
+Route::get('/login', [AuthController::class, 'showLoginForm'])->name('login');
+Route::post('/login', [AuthController::class, 'login']);
+Route::get('/register', [AuthController::class, 'showRegisterForm'])->name('register');
+Route::post('/register', [AuthController::class, 'register']);
+
 Route::middleware('auth')->group(
     function () {
 
@@ -24,6 +30,16 @@ Route::middleware('auth')->group(
 
         Route::post('/thanks', [ContactController::class, 'store']);    // 送信処理
 
-        Route::get('/', [AuthController::class, 'index']);
+
+        Route::get('/admin', [AdminController::class, 'index'])->name('admin.index');
+
+        Route::get('/search', [AdminController::class, 'search'])->name('admin.search');
+
+        Route::get('/reset', [AdminController::class, 'reset'])->name('admin.reset');
+
+        Route::post('/delete', [AdminController::class, 'delete'])->name('admin.delete');
+
+        Route::get('/export', [AdminController::class, 'export'])->name('admin.export');
     }
+
 );

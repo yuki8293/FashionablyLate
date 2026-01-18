@@ -23,8 +23,8 @@
                     <input type="text" name="last_name" placeholder="山田" value="{{ old('last_name') }}" />
                     <input type="text" name="first_name" placeholder="太郎" value="{{ old('first_name') }}" />
                 </div>
-                <div class="form_error">
-                    @error('last__name')
+                <div class="form__error">
+                    @error('last_name')
                     {{ $message }}
                     @enderror
                     @error('first_name')
@@ -75,20 +75,14 @@
             </div>
             <div class="form__group-content">
                 <div class="form__input--text">
-                    <input class="contact-form_input contact-form_input--tel" type="text" name="tel1" placeholder="090">
+                    <input class="contact-form_input contact-form_input--tel" type="text" name="tel1" placeholder="090" value="{{ old('tel1') }}">
                     <span class="contact-form_hyphen">-</span>
-                    <input class="contact-form_input contact-form_input--tel" type="text" name="tel2" placeholder="1234">
+                    <input class="contact-form_input contact-form_input--tel" type="text" name="tel2" placeholder="1234" value="{{ old('tel2') }}">
                     <span class="contact-form_hyphen">-</span>
-                    <input class="contact-form_input contact-form_input--tel" type="text" name="tel3" placeholder="5678">
+                    <input class="contact-form_input contact-form_input--tel" type="text" name="tel3" placeholder="5678" value="{{ old('tel3') }}">
                 </div>
                 <div class="form__error">
-                    @error('tel1')
-                    {{ $message }}
-                    @enderror
-                    @error('tel2')
-                    {{ $message }}
-                    @enderror
-                    @error('tel3')
+                    @error('tel')
                     {{ $message }}
                     @enderror
                 </div>
@@ -103,6 +97,11 @@
             <div class="form__group-content">
                 <div class="form__input--text">
                     <input type="text" name="address" placeholder="例)東京都渋谷区〇〇" value="{{ old('address') }}">
+                </div>
+                <div class="form__error">
+                    @error('address')
+                    {{ $message }}
+                    @enderror
                 </div>
             </div>
         </div>
@@ -130,16 +129,17 @@
 
             <div class="form__group-content">
                 <div class="form__input--select">
-                    <select name="category" class="form__select">
-                        <option value="">選択してください</option>
-                        <option value="1" {{ old('category') == '1' ? 'selected' : '' }}>商品について</option>
-                        <option value="2" {{ old('category') == '2' ? 'selected' : '' }}>配送について</option>
-                        <option value="3" {{ old('category') == '3' ? 'selected' : '' }}>返品・交換について</option>
-                        <option value="4" {{ old('category') == '4' ? 'selected' : '' }}>その他</option>
+                    <select name="category_id" class="form__select" required>
+                        <option value="" disabled selected hidden>選択してください</option>
+                        <option value="1" {{ old('category_id') == '1' ? 'selected' : '' }}>商品のお届けについて</option>
+                        <option value="2" {{ old('category_id') == '2' ? 'selected' : '' }}>商品の交換について</option>
+                        <option value="3" {{ old('category_id') == '3' ? 'selected' : '' }}>商品トラブル</option>
+                        <option value="4" {{ old('category_id') == '4' ? 'selected' : '' }}>ショップへのお問い合わせ</option>
+                        <option value="5" {{ old('category_id') == '5' ? 'selected' : '' }}>その他</option>
                     </select>
                 </div>
                 <div class="form__error">
-                    @error('category')
+                    @error('category_id')
                     {{ $message }}
                     @enderror
                 </div>

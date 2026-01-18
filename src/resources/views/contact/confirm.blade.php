@@ -12,6 +12,18 @@
 
     <form class="form" action="/thanks" method="post">
         @csrf
+        <input type="hidden" name="last_name" value="{{ $contact['last_name'] }}">
+        <input type="hidden" name="first_name" value="{{ $contact['first_name'] }}">
+        <input type="hidden" name="gender" value="{{ $contact['gender'] }}">
+        <input type="hidden" name="email" value="{{ $contact['email'] }}">
+        <input type="hidden" name="tel1" value="{{ $contact['tel1'] }}">
+        <input type="hidden" name="tel2" value="{{ $contact['tel2'] }}">
+        <input type="hidden" name="tel3" value="{{ $contact['tel3'] }}">
+        <input type="hidden" name="address" value="{{ $contact['address'] }}">
+        <input type="hidden" name="building" value="{{ $contact['building'] }}">
+        <input type="hidden" name="category_id" value="{{ $contact['category_id'] }}">
+        <input type="hidden" name="content" value="{{ $contact['content'] }}">
+
         <!-- お名前 -->
         <div class="confirm-table">
             <table class="confirm-table__inner">
@@ -65,12 +77,25 @@
                         <input type="text" name="building" value="{{ $contact['building'] }}" readonly>
                     </td>
                 </tr>
+
                 <!-- お問い合わせの種類 -->
                 <tr class="confirm-table__row">
                     <th class="confirm-table__header">お問い合わせの種類</th>
                     <!-- 表示用 -->
                     <td class="confirm-table__text">
-                        <input type="text" name="category" value="{{ ['1'=>'商品について','2'=>'配送について','3'=>'返品・交換について','4'=>'その他'][$contact['category']] ?? '' }}" readonly>
+                        <!-- 保存用 -->
+                        <input type="hidden" name="category_id" value="{{ $contact['category_id'] }}">
+                        <!-- 表示用 -->
+                        <input type="text" readonly
+                            value="{{
+                [
+                    1 => '商品のお届けについて',
+                    2 => '商品の交換について',
+                    3 => '商品トラブル',
+                    4 => 'ショップへのお問い合わせ',
+                    5 => 'その他'
+                ][$contact['category_id']] ?? ''
+            }}">
                     </td>
                 </tr>
 

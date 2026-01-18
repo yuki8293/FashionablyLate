@@ -65,13 +65,15 @@
 }
 
 
-.form_error {
+.form__error {
     color: #ff0000;
     /* 赤文字 */
     font-size: 12px;
     margin-top: 4px;
     width: 100%;
     /* 横幅いっぱい */
+    text-align: left;
+        /* ← 左揃え */
 }
 
 /* 親コンテナをflexで横並び */
@@ -106,8 +108,22 @@
     /* 幅にpaddingを含める */
     background-color: #f5f5f5;
     /* 薄いグレー背景 */
-    color: #999;
+    color: #000;
     resize: none;
+}
+
+input::placeholder,
+textarea::placeholder {
+    color: #999;
+    /* サンプル文字は薄め */
+    opacity: 1;
+    /* Firefox 対策 */
+}
+
+/* 選択された文字は普通の色に */
+.form__input--select select:invalid {
+    color: #999;
+    /* グレー*/
 }
 
 .form__input--select {
