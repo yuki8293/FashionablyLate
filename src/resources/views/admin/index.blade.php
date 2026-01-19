@@ -20,6 +20,9 @@
     </div>
 </div>
 
+<!-- 件数確認用 -->
+<p>件数: {{ $contacts->count() }}</p>
+
 {{-- 一覧テーブル --}}
 <table class="contact-table">
     <thead>
@@ -33,21 +36,22 @@
     </thead>
 
     <tbody>
-        {{-- ダミーデータ（あとでDBに置き換える） --}}
+        @foreach ($contacts as $contact)
         <tr>
-            <td>山田 太郎</td>
-            <td>男性</td>
-            <td>yamada@example.com</td>
-            <td>商品のお届けについて</td>
+            <td>{{ $contact->last_name }} {{ $contact->first_name }}</td>
+            <td>{{ $contact->gender }}</td>
+            <td>{{ $contact->email }}</td>
+            <td>
+                @if($contact->category_id == 1) 商品のお届けについて
+                @elseif($contact->category_id == 2) 商品交換について
+                @elseif($contact->category_id == 3) 商品トラブル
+                @elseif($contact->category_id == 4) ショップへのお問い合わせ
+                @elseif($contact->category_id == 5) その他
+                @endif
+            </td>
             <td><button>詳細</button></td>
         </tr>
-        <tr>
-            <td>鈴木 花子</td>
-            <td>女性</td>
-            <td>suzuki@example.com</td>
-            <td>商品交換について</td>
-            <td><button>詳細</button></td>
-        </tr>
+        @endforeach
     </tbody>
 </table>
 

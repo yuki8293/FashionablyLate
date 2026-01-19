@@ -6,18 +6,20 @@ body {
 }
 
 header {
+    display: flex;
     background-color: #fff;
     color: #8A7676;
     padding: 15px 30px;
     border-bottom: 1px solid #ddd;
 }
 
-header__inner {
+.header__inner {
     display: flex;
     justify-content: center;
     /* 横中央 */
     align-items: center;
     /* 縦中央 */
+    width: 100%;
 }
 
 .header .header__logo {
@@ -113,7 +115,7 @@ form button {
 }
 
 form button.search {
-    background-color: #654824;
+    background-color: #8A7676;
     color: white;
 }
 
@@ -167,31 +169,40 @@ form button.reset {
 .pagination button.page:hover,
 .pagination button.prev:hover,
 .pagination button.next:hover {
-    background-color: #e0d3c1;
+    background-color: #8A7676;
     /* 少し濃いベージュ */
 }
 
-form button.export {
-    background-color: #d6bfa4;
+.export-button {
+    display: inline-block;
+        /* 超重要 */
+        padding: 10px 24px;
+    background-color: #E6DED5;
         /* ベージュ */
         color: #654824;
+        border-radius: 4px;
+            text-decoration: none;
 }
 
 table.contact-table {
     width: 100%;
+    border: 1px solid #ccc;
     border-collapse: collapse;
     margin-bottom: 20px;
 }
 
 table.contact-table th,
 table.contact-table td {
-    border: 1px solid #ccc;
     padding: 8px;
     text-align: left;
 }
 
 table.contact-table th {
-    background-color: #ecf0f1;
+    background-color: #8A7676;
+    color: #fff;
+        /* 文字を白 */
+        padding: 10px;
+        font-weight: normal;
 }
 
 table.contact-table tr:hover {
@@ -199,11 +210,12 @@ table.contact-table tr:hover {
 }
 
 table.contact-table td button {
-    background-color: #3498db;
-    color: white;
-    padding: 5px 8px;
-    border-radius: 3px;
+    background-color: #fff;
+    color: #8A7676;
+    padding: 8px 10px;
+    border: 1px solid #C7B7A3;
     cursor: pointer;
+    opacity: 0.6;
 }
 
 .pagination {
