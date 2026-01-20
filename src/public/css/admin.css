@@ -119,15 +119,22 @@ form button.search {
     color: white;
 }
 
-form button.reset {
+.reset-button {
     background-color: #d6bfa4;
         /* ベージュ系 */
         color: white;
-        /* 文字色を白に */
-        border: none;
-        border-radius: 3px;
-        padding: 5px 10px;
-        cursor: pointer;
+        display: inline-block;
+            padding: 8px 10px;
+            min-width: 80px;
+            /* 文字が二列にならない幅を確保 */
+            background-color: #d6bfa4;
+            color: white;
+            border-radius: 3px;
+            text-align: center;
+            text-decoration: none;
+            cursor: pointer;
+            white-space: nowrap;
+            /* 折り返さない */
 }
 
 .search-section {

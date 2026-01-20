@@ -17,19 +17,22 @@ use App\Http\Controllers\AdminController;
 */
 
 Route::get('/login', [AuthController::class, 'showLoginForm'])->name('login');
+
 Route::post('/login', [AuthController::class, 'login']);
+
 Route::get('/register', [AuthController::class, 'showRegisterForm'])->name('register');
+
 Route::post('/register', [AuthController::class, 'register']);
 
+Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
+
+Route::get('/', [AuthController::class, 'index']);      // 入力画面
+
+Route::post('/confirm', [ContactController::class, 'confirm']); // 確認画面
+
+Route::post('/thanks', [ContactController::class, 'store']);    // 送信処理
 Route::middleware('auth')->group(
     function () {
-
-        Route::get('/', [AuthController::class, 'index']);      // 入力画面
-
-        Route::post('/confirm', [ContactController::class, 'confirm']); // 確認画面
-
-        Route::post('/thanks', [ContactController::class, 'store']);    // 送信処理
-
 
         Route::get('/admin', [AdminController::class, 'index'])->name('admin.index');
 
@@ -40,6 +43,8 @@ Route::middleware('auth')->group(
         Route::post('/delete', [AdminController::class, 'delete'])->name('admin.delete');
 
         Route::get('/export', [AdminController::class, 'export'])->name('admin.export');
+
+        Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
     }
 
 );

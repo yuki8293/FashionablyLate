@@ -17,5 +17,7 @@ class DatabaseSeeder extends Seeder
         $this->call([
             CategorySeeder::class,
         ]);
+        // 次に contacts を 35 件作成
+        \App\Models\Contact::factory(35)->create();
     }
 }

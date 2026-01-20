@@ -1,3 +1,12 @@
+@extends('layouts.app')
+
+@section('css')
+<link rel="stylesheet" href="{{ asset('css/admin.css') }}">
+@endsection
+
+@section('content')
+<h1 class="admin-title">Admin</h1>
+
 <form class="search-form" method="get" action="{{ route('admin.search') }}">
 
     <div class="search-row">
@@ -34,7 +43,7 @@
         </div>
 
         <div>
-            <button type="reset" class="reset">リセット</button>
+            <a href="{{ route('admin.reset') }}" class="reset-button">リセット</a>
         </div>
     </div>
 
@@ -46,3 +55,4 @@
         </div>
     </div>
 </form>
+@endsection

@@ -16,16 +16,20 @@ class AdminController extends Controller
 
         // 検索条件
         if ($request->filled('name')) {
-            $query->where('name', 'like', "%{$request->name}%");
+            $query->where(function ($q) use ($request) {
+                $q->where('last_name', 'like', "%{$request->name}%")
+                    ->orWhere('first_name', 'like', "%{$request->name}%");
+            });
         }
 
         if ($request->filled('gender')) {
             $query->where('gender', $request->gender);
         }
 
-        if ($request->filled('type')) {
-            $query->where('type', $request->type);
+        if ($request->filled('category')) {
+            $query->where('category_id', $request->category);
         }
+
 
         if ($request->filled('date')) {
             $query->whereDate('created_at', $request->date);
@@ -111,6 +115,12 @@ class AdminController extends Controller
 
         $contacts = $query->get();
 
+        return view('admin.index', compact('contacts'));
+    }
+
+    public function reset()
+    {
+        $contacts = Contact::all(); // 全件取得
         return view('admin.index', compact('contacts'));
     }
 }

@@ -82,9 +82,9 @@
                     <input class="contact-form_input contact-form_input--tel" type="text" name="tel3" placeholder="5678" value="{{ old('tel3') }}">
                 </div>
                 <div class="form__error">
-                    @error('tel')
-                    {{ $message }}
-                    @enderror
+                    @if ($errors->has('tel1') || $errors->has('tel2') || $errors->has('tel3'))
+                    電話番号を入力してください
+                    @endif
                 </div>
             </div>
         </div>
