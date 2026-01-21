@@ -50,6 +50,11 @@ class ContactController extends Controller
         // DBに存在しない項目を削除
         unset($validated['tel1'], $validated['tel2'], $validated['tel3']);
 
+        if (isset($validated['content'])) {
+            $validated['detail'] = $validated['content'];
+            unset($validated['content']);
+        }
+
         Contact::create($validated);
 
         return view('contact.thanks');

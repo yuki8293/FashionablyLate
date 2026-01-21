@@ -65,18 +65,7 @@
     box-sizing: border-box;
 }
 
-/* 姓・名を横並び */
-.confirm-table__text.name-inputs input {
-    flex: 1;
-    width: auto;
-    /* 100%は不要 */
-}
 
-/* 電話番号も横並び */
-.confirm-table__text.tel-inputs input {
-    flex: 1;
-    width: auto;
-}
 
 /* 最後の行のボーダーを消す */
 .confirm-table__row:last-child .confirm-table__header,

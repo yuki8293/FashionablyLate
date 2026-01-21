@@ -6,20 +6,17 @@ body {
 }
 
 header {
+background: #ffffff;
     display: flex;
-    background-color: #fff;
-    color: #8A7676;
-    padding: 15px 30px;
-    border-bottom: 1px solid #ddd;
+    justify-content: center;
+    align-items: center;
+    border-bottom: 1px solid #ccc;;
 }
 
 .header__inner {
-    display: flex;
-    justify-content: center;
-    /* 横中央 */
-    align-items: center;
-    /* 縦中央 */
-    width: 100%;
+margin: 0 auto;
+    padding: 20px 15px;
+    max-width: 1230px;
 }
 
 .header .header__logo {
@@ -27,13 +24,13 @@ header {
     color: #8A7676;
     text-align: center;
     font-family: serif;
-    font-size: 20px;
+    font-size: 30px;
 }
 
 .admin-title {
     text-align: center;
     color: #8A7676;
-    font-size: 20px;
+    font-size: 30px;
     font-weight: bold;
     font-family: serif;
     margin: 30px 0 20px;
@@ -143,7 +140,7 @@ form button.search {
 }
 
 .pagination {
-    margin-top: 0;
+    margin-top: 30px;
     /* ボタンとの間隔 */
     display: flex;
     justify-content: right;
@@ -241,3 +238,7 @@ table.contact-table td button {
 .pagination button:hover {
     background-color: #bdc3c7;
 }
+
+
+
+

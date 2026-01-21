@@ -129,7 +129,7 @@
 
             <div class="form__group-content">
                 <div class="form__input--select">
-                    <select name="category_id" class="form__select" required>
+                    <select name="category_id" class="form__select">
                         <option value="" disabled selected hidden>選択してください</option>
                         <option value="1" {{ old('category_id') == '1' ? 'selected' : '' }}>商品のお届けについて</option>
                         <option value="2" {{ old('category_id') == '2' ? 'selected' : '' }}>商品の交換について</option>
@@ -153,10 +153,10 @@
             </div>
             <div class="form__group-content">
                 <div class="form__input--textarea">
-                    <textarea name="content" placeholder="お問い合わせ内容をご記載ください">{{ old('content') }}</textarea>
+                    <textarea name="detail" placeholder="お問い合わせ内容をご記載ください">{{ old('detail') }}</textarea>
                 </div>
                 <div class="form__error">
-                    @error('content')
+                    @error('detail')
                     {{ $message }}
                     @enderror
                 </div>

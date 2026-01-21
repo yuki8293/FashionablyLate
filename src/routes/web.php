@@ -31,6 +31,7 @@ Route::get('/', [AuthController::class, 'index']);      // 入力画面
 Route::post('/confirm', [ContactController::class, 'confirm']); // 確認画面
 
 Route::post('/thanks', [ContactController::class, 'store']);    // 送信処理
+
 Route::middleware('auth')->group(
     function () {
 
@@ -44,7 +45,7 @@ Route::middleware('auth')->group(
 
         Route::get('/export', [AdminController::class, 'export'])->name('admin.export');
 
-        Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
     }
 
 );
+

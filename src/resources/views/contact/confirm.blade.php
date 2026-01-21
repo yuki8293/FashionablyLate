@@ -22,7 +22,7 @@
         <input type="hidden" name="address" value="{{ $contact['address'] }}">
         <input type="hidden" name="building" value="{{ $contact['building'] }}">
         <input type="hidden" name="category_id" value="{{ $contact['category_id'] }}">
-        <input type="hidden" name="content" value="{{ $contact['content'] }}">
+        <input type="hidden" name="detail" value="{{ $contact['detail'] }}">
 
         <!-- お名前 -->
         <div class="confirm-table">
@@ -104,7 +104,7 @@
                     <th class="confirm-table__header">お問い合わせ内容</th>
                     <!-- 表示用 -->
                     <td class="confirm-table__text">
-                        <input type="text" name="content" value="{{ $contact['content'] }}" readonly />
+                        <input type="text" name="detail" value="{{ $contact['detail'] }}" readonly />
                     </td>
                 </tr>
             </table>

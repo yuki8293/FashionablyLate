@@ -31,11 +31,8 @@ class AdminController extends Controller
         }
 
 
-        if ($request->filled('date')) {
-            $query->whereDate('created_at', $request->date);
-        }
-
-        $contacts = $query->paginate(7);
+        // 条件なしなら全件取得
+        $contacts = $query->paginate(7)->appends($request->all());
 
         return view('admin.index', compact('contacts'));
     }
